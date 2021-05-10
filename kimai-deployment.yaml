@@ -22,15 +22,18 @@ spec:
         env:
         - name: ADMINMAIL
           valueFrom:
-            configMapKeyRef:
-              name: kimai-app-configmap
+            secretKeyRef:
+              name: kimai-app-secret
               key: ADMINMAIL    
         - name: ADMINPASS
-          value: Cybage123
+          valueFrom:
+            secretKeyRef:
+              name: kimai-app-secret
+              key: ADMINPASS      
         - name: DATABASE_URL
           valueFrom:
-            configMapKeyRef:
-              name: kimai-app-configmap
+            secretKeyRef:
+              name: kimai-app-secret
               key: DATABASE_URL      
         - name: TRUSTED_HOSTS
           valueFrom:
